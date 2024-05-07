@@ -1,0 +1,24 @@
+version: "1.0"
+services:
+  redis:
+    image: docker.io/redis
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+    networks:
+      - redis-test
+
+  redis-test-app:
+    container_name: redis-test-app
+    build: ./
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+    networks:
+      - redis-test
+networks:
+  redis-test:
