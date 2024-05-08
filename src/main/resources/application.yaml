@@ -10,13 +10,14 @@ spring:
   data:
     redis:
       port: 6379
-      jedis.pool:
-        max-active: 8 # Số kết nối tối đa, giá trị âm là no limit
+      lettuce.pool:
+         max-active: 8 # Số kết nối tối đa, giá trị âm là no limit
         # min-idle: 0 # kết nối nhàn rỗi tối thiểu
         # max-idle: 8 # kết nối nhàn rỗi tối đa
         # max-wait: -1ms # thời gian đợi kết nối khi pool cạn kiệt trước khi throw exception, giá trị âm sẽ đợi vô hạn
         # time-between-eviction-runs: 1000 # sau bao lâu sẽ chạy evict idle connect
-      database: 10 # 16 cơ sở dữ liệu (được đánh số từ 0 đến 15) trong một instance Redis để tách logic
+
+  #      database: 10 # 16 cơ sở dữ liệu (được đánh số từ 0 đến 15) trong một instance Redis để tách logic
   datasource:
     url: jdbc:h2:file:./data/h2
     driverClassName: org.h2.Driver
@@ -41,10 +42,10 @@ spring:
   cache:
     redis:
       cache-null-values: false
-      enable-statistics: false
-      time-to-live: 10000
+      enable-statistics: true
+      time-to-live: 100000
       use-key-prefix: true
-      key-prefix: ${}
+#      key-prefix: ${spring.application.name}_${}
   h2:
     console:
       enabled: true

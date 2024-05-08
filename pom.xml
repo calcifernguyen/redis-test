@@ -20,10 +20,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
@@ -34,6 +30,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
 <!--		<dependency>-->
 <!--			<groupId>redis.clients</groupId>-->
@@ -144,13 +144,13 @@
 						</configuration>
 					</execution>
 				</executions>
-<!--				<dependencies>-->
-<!--					<dependency>-->
-<!--						<groupId>org.springframework.restdocs</groupId>-->
-<!--						<artifactId>spring-restdocs-asciidoctor</artifactId>-->
-<!--						<version>${spring-restdocs.version}</version>-->
-<!--					</dependency>-->
-<!--				</dependencies>-->
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework.restdocs</groupId>
+						<artifactId>spring-restdocs-asciidoctor</artifactId>
+						<version>${spring-restdocs.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -172,7 +172,6 @@
 <!--				<configuration>-->
 <!--					<source>17</source>-->
 <!--					<target>17</target>-->
-<!--					<compilerVersion>17</compilerVersion>-->
 <!--				</configuration>-->
 <!--			</plugin>-->
 		</plugins>

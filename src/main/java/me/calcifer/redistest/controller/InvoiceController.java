@@ -2,6 +2,7 @@ package me.calcifer.redistest.controller;
 
 import me.calcifer.redistest.entity.Invoice;
 import me.calcifer.redistest.service.InvoiceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/invoice")
 public class InvoiceController {
+    @Autowired
     InvoiceService invoiceService;
-
-    public InvoiceController(InvoiceService invoiceService) {
-        this.invoiceService = invoiceService;
-    }
 
     @PostMapping("/")
     public ResponseEntity<Invoice> insert(@RequestBody Invoice invoice) {
